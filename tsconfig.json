@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "./",
+    "experimentalDecorators": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "strict": true,
+    "module": "commonjs",
+    "typeRoots": [
+      "/node_modules/@types",
+      "/typings"
+    ]
+  },
+  "include": ["**/*"],
+  "exclude": ["node_modules"]
+}

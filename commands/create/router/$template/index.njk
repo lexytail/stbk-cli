@@ -1,0 +1,15 @@
+import { Router } from 'express'
+
+const router: Router = Router({ mergeParams: true })
+
+!(async () => {
+
+  const methods: string[] = [{% for method in methods %}'{{method}}', {% endfor %}]
+
+  methods.forEach(async (method: string) => router[method]('/', (await import(`./${method}`)).default))
+  {% if not child %}
+  router.use('/:{{paramname}}', (await import('./{{paramname}}')).default)
+  {% endif %}
+})()
+
+export default router

@@ -1,0 +1,13 @@
+export interface {{model}}InterfaceForDocument {
+{% for key, options in properties %}
+  {{key}}{{ '?' if options[1] === false }}: {{options[0]}}
+{% endfor %}
+}
+
+export interface {{model}}Interface extends {{model}}InterfaceForDocument {
+
+  _id?: string
+
+  id?: string
+
+}
